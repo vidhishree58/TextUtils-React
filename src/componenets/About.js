@@ -1,62 +1,212 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function About(props) {
 
-    // const [myStyle, setmyStyle] = useState({
-    //     color: 'black',
-    //     backgroundColor: 'white'
-    // })
+    const isDark = props.mode === 'dark'
 
-    let myStyle={
-        color:props.mode==='dark'?'white':'#042743',
-        backgroundColor:props.mode==='dark'?'#042743':'white',
-        border: '2px solid',
-        borderColor: props.mode==='dark'?'white':'#042743'
+    const headingStyle = {
+        color: isDark ? 'white' : '#042743'
     }
 
+    const cardStyle = {
+        backgroundColor: isDark ? '#13466e' : '#f8f9fa',
+        color: isDark ? 'white' : '#042743',
+        border: isDark ? '1px solid #5c8db8' : '1px solid #dee2e6',
+        borderRadius: '12px'
+    }
 
     return (
-        <div className="container">
-            <h1 className="my-3" style={{color:props.mode==='dark'?'white':'#042743',}}>About Us</h1>
-            <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <strong>Introduction</strong>
-                        </button>
-                    </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={myStyle}>
-                            TextUtils is a simple React-based web application that helps users quickly edit and analyze text. It provides useful tools to transform text and improve readability with an easy-to-use interface.
+        <div
+            className="container py-4"
+            style={{ color: isDark ? 'white' : '#042743' }}
+        >
+
+            {/* Header */}
+            <div className="text-center mb-5">
+                <h1 className="display-5 fw-bold" style={headingStyle}>
+                    About TextUtils
+                </h1>
+
+                <p className="lead mt-3">
+                    A simple and powerful text utility tool designed to
+                    help you transform, clean and analyze your text with ease.
+                </p>
+            </div>
+
+
+            {/* Introduction */}
+            <div className="mb-5">
+                <h2 className="fw-bold mb-3" style={headingStyle}>
+                    What is TextUtils?
+                </h2>
+
+                <p>
+                    TextUtils is a React-based text utility application that
+                    provides a collection of useful tools for editing and
+                    analyzing text. Whether you want to change the case,
+                    remove unnecessary characters, clean your text or check
+                    text statistics, TextUtils makes the process quick and easy.
+                </p>
+
+                <p>
+                    The application has been designed with a clean and
+                    responsive interface so that it can be used comfortably
+                    on different screen sizes.
+                </p>
+            </div>
+
+
+            {/* Features */}
+            <div className="mb-5">
+                <h2 className="fw-bold mb-4" style={headingStyle}>
+                    Features
+                </h2>
+
+                <div className="row g-4">
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Text Transformation
+                            </h5>
+
+                            <p className="mb-0">
+                                Convert your text to uppercase, lowercase,
+                                sentence case or capitalize each word.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <strong>Features</strong>
-                        </button>
-                    </h2>
-                    <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={myStyle}>
-                            The app allows users to convert text to uppercase or lowercase, remove extra spaces, and view text statistics such as word count, character count, and estimated reading time.
+
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Text Cleaning
+                            </h5>
+
+                            <p className="mb-0">
+                                Remove extra spaces, numbers, punctuation,
+                                special characters and unnecessary blank lines.
+                            </p>
                         </div>
                     </div>
-                </div>
-                <div className="accordion-item">
-                    <h2 className="accordion-header">
-                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <strong>Technology</strong>
-                        </button>
-                    </h2>
-                    <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                        <div className="accordion-body" style={myStyle}>
-                            TextUtils is built using React and Bootstrap to create a fast, responsive, and user-friendly web application while demonstrating modern web development concepts.
+
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Text Analysis
+                            </h5>
+
+                            <p className="mb-0">
+                                Get useful statistics including word count,
+                                character count, sentence count and line count.
+                            </p>
                         </div>
                     </div>
+
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Reading Time
+                            </h5>
+
+                            <p className="mb-0">
+                                Get an estimated reading time based on the
+                                number of words in your text.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Copy & Clear
+                            </h5>
+
+                            <p className="mb-0">
+                                Quickly copy your processed text or clear the
+                                entire text area with a single click.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div className="col-md-6 col-lg-4">
+                        <div className="p-4 h-100" style={cardStyle}>
+                            <h5 className="fw-bold">
+                                Dark Mode
+                            </h5>
+
+                            <p className="mb-0">
+                                Switch between light and dark themes for a
+                                comfortable viewing experience.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
+
+
+            {/* Technology */}
+            <div className="mb-5">
+                <h2 className="fw-bold mb-3" style={headingStyle}>
+                    Technologies Used
+                </h2>
+
+                <div
+                    className="p-4"
+                    style={cardStyle}
+                >
+                    <p className="mb-2">
+                        <strong>React.js:</strong> Used to build the
+                        interactive user interface and manage application state.
+                    </p>
+
+                    <p className="mb-2">
+                        <strong>Bootstrap:</strong> Used for responsive
+                        layouts, styling and UI components.
+                    </p>
+
+                    <p className="mb-0">
+                        <strong>JavaScript:</strong> Used to implement the
+                        text processing and application functionality.
+                    </p>
+                </div>
+            </div>
+
+
+            {/* Why TextUtils */}
+            <div className="mb-5">
+                <h2 className="fw-bold mb-3" style={headingStyle}>
+                    Why Use TextUtils?
+                </h2>
+
+                <p>
+                    TextUtils brings commonly used text editing and analysis
+                    features together in one convenient place. It is simple,
+                    fast and easy to use, making it useful for students,
+                    writers, developers and anyone who works with text.
+                </p>
+            </div>
+
+
+            {/* Footer Message */}
+            <div
+                className="text-center p-4 mb-3"
+                style={cardStyle}
+            >
+                <h4 className="fw-bold">
+                    Simple. Useful. Efficient.
+                </h4>
+
+                <p className="mb-0">
+                    Transform and analyze your text with TextUtils.
+                </p>
+            </div>
 
         </div>
     )
